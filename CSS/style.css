@@ -1,0 +1,37 @@
+body {
+    height: 100vh;
+    max-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+    ". . ."
+    ". yatzy-container ."
+    ". . .";
+}
+
+.yatzy-container {
+    grid-area: yatzy-container;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+    "dice-container"
+    "button-container";
+}
+
+.dice-container {
+    grid: dice-container;
+}
+
+.button-container {
+    grid: button-container
+}
+
