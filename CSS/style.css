@@ -25,6 +25,8 @@ body {
     grid-template-areas: 
     "dice-container"
     "button-container";
+
+    background-color: aqua;
 }
 
 .dice-container {
@@ -35,3 +37,11 @@ body {
     grid: button-container
 }
 
+.dice {
+    width: 10%;
+}
+
+.locked {
+    background-color: rgba(255, 0, 0, 0.514);
+    
+}
