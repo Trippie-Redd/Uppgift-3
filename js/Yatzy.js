@@ -1,15 +1,31 @@
 let rolls = 3;
 
-function rollAllDice() {
-    let die = document.getElementsByClassName("dice");
+let player1Scores={ 
+    one:0, 
+    two:0, 
+    three:0,
+    four:0,
+    five:4,
+    six:0
+};
+
+function RollAllDice() {
+    alert(player1Scores.five);
+
+    // Rolls amount logic
     if (rolls <= 0) {
         rolls = 3;
     }
 
+    let rolls_counter = document.getElementById("rolls-text")
+    rolls_counter.textContent = "Rolls left: " + rolls;
+    rolls--;
+
+    // Rolling logic
+    let die = document.getElementsByClassName("dice");
     for (let i = 0; i < die.length; i++) {
         RollDice(die[i]);
     }
-    rolls--;
 }
 
 function RollDice(image) {
@@ -19,7 +35,7 @@ function RollDice(image) {
     }
 
     let num = Math.floor(Math.random() * 6) + 1;
-    image.src = "assets/dice" + num + ".png";
+    image.src = "/assets/yatzy/dice" + num + ".png";
 }
 
 function LockDice(image) {
@@ -29,3 +45,6 @@ function LockDice(image) {
         image.classList.add("locked");
     }
 }
+
+// Scores
+

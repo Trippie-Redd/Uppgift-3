@@ -10,19 +10,19 @@
 <body>
     <div class="yatzy-container">
         <div class="dice-container">
-            <img src="/assets/UpscaledDice_White.png" alt="dice" class="dice">
-            <img src="/assets/UpscaledDice_White.png" alt="dice" class="dice">
-            <img src="/assets/UpscaledDice_White.png" alt="dice" class="dice">
-            <img src="/assets/UpscaledDice_White.png" alt="dice" class="dice">
-            <img src="/assets/UpscaledDice_White.png" alt="dice" class="dice">
+            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
         </div>
 
         <div class="button-container">
             <p id="rolls-text">Rolls Left: 3</p>
-            <button class="button">Roll</button>
+            <button class="button" onclick="RollAllDice()">Roll</button>
         </div>
     </div>
 
-    <script src="js/Yatzy.js"></script>
+    <script src="/js/Yatzy.js"></script>
 </body>
 </html>
