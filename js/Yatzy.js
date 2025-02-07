@@ -10,8 +10,6 @@ let player1Scores={
 };
 
 function RollAllDice() {
-    alert(player1Scores.five);
-
     // Rolls amount logic
     if (rolls <= 0) {
         rolls = 3;
