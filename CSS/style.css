@@ -1,55 +1,63 @@
-body {
-    height: 100vh;
-    max-height: 100vh;
-
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-template-areas: 
-    ". . ."
-    "player1Container yatzy-container player2Container"
-    ". . .";
+#yatzy {
+  height: 100vh;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas: "player1Container header-container player2Container" "player1Container yatzy-container player2Container" "player1Container . player2Container";
 }
-
-.yatzy-container {
-    grid-area: yatzy-container;
-    height: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 3fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-template-areas: 
-    "dice-container"
-    "button-container";
-
-    background-color: aqua;
+#yatzy #player1Container {
+  grid-area: player1Container;
 }
-
-.dice-container {
-    grid-area: dice-container;
+#yatzy #player2Container {
+  grid-area: player2Container;
 }
-
-.button-container {
-    grid-area: button-container
+#yatzy #player2Container, #yatzy #player1Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-.dice {
-    width: 10%;
+#yatzy #player2Container button, #yatzy #player1Container button {
+  width: 30%;
+  height: 4%;
+  border: none;
 }
-
-.locked {
-    background-color: rgba(255, 0, 0, 0.514);
-    
+#yatzy #player2Container button:hover, #yatzy #player1Container button:hover {
+  background-color: rgb(206, 206, 206);
 }
-
-#player1Container {
-    grid-area: player1Container;
+#yatzy #player2Container .lockedScore, #yatzy #player1Container .lockedScore {
+  background-color: rgb(164, 164, 164);
 }
-
-#player2Container {
-    grid-area: player2Container;
+#yatzy #player2Container .lockedScore:hover, #yatzy #player1Container .lockedScore:hover {
+  background-color: rgb(164, 164, 164);
 }
+#yatzy #header-container {
+  grid-area: header-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#yatzy #header-container #playerActive {
+  color: rgb(196, 3, 3);
+}
+#yatzy .yatzy-container {
+  grid-area: yatzy-container;
+  background-color: rgb(1, 200, 45);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2.5fr 1fr;
+  grid-template-areas: "dice-container" "button-container";
+}
+#yatzy .yatzy-container .dice-container {
+  grid-area: dice-container;
+}
+#yatzy .yatzy-container .dice-container .dice {
+  width: 10%;
+}
+#yatzy .yatzy-container .dice-container .locked {
+  background-color: rgb(196, 3, 3);
+}
+#yatzy .yatzy-container .button-container {
+  grid-area: button-container;
+}/*# sourceMappingURL=style.css.map */

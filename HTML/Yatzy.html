@@ -8,61 +8,67 @@
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
-    <div id="player1Container">
-        <button onclick="CheckForDigit(1, this)">Aces</button>
-        <button onclick="CheckForDigit(2, this)">Twos</button>
-        <button onclick="CheckForDigit(3, this)">Threes</button>
-        <button onclick="CheckForDigit(4, this)">Fours</button>
-        <button onclick="CheckForDigit(5, this)">Fives</button>
-        <button onclick="CheckForDigit(6, this)">Sixes</button>
-        <button id="p1DigitTotal">Total</button>
-        <button id="p1Bonus">Bonus</button>
-        <button onclick="CheckForPairs(1, this)">One pair</button>
-        <button onclick="CheckForPairs(2, this)">Two pairs</button>
-        <button onclick="CheckForMultipleOfAKind(3, this)">3 of a kind</button>
-        <button onclick="CheckForMultipleOfAKind(4, this)">4 of a kind</button>
-        <button onclick="CheckForFullHouse(this)">Full house</button>
-        <button onclick="CheckForLadder(1, this)">Small ladder</button>
-        <button onclick="CheckForLadder(2, this)">Big ladder</button>
-        <button onclick="CheckChance(this)">Chance</button>
-        <button onclick="CheckForMultipleOfAKind(5, this)">Yatzy</button>
-        <button id="p1Total">Total</button>
-    </div>
-
-    <div class="yatzy-container">
-        <div class="dice-container">
-            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
-            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
-            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
-            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
-            <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+    <div id="yatzy">
+        <div id="player1Container">
+            <button class="p1" onclick="CheckForDigit(1, this)">Aces</button>
+            <button class="p1" onclick="CheckForDigit(2, this)">Twos</button>
+            <button class="p1" onclick="CheckForDigit(3, this)">Threes</button>
+            <button class="p1" onclick="CheckForDigit(4, this)">Fours</button>
+            <button class="p1" onclick="CheckForDigit(5, this)">Fives</button>
+            <button class="p1" onclick="CheckForDigit(6, this)">Sixes</button>
+            <button class="lockedScore" id="p1DigitTotal">Total</button>
+            <button class="lockedScore" id="p1Bonus">Bonus</button>
+            <button class="p1" onclick="CheckForPairs(1, this)">One pair</button>
+            <button class="p1" onclick="CheckForPairs(2, this)">Two pairs</button>
+            <button class="p1" onclick="CheckForMultipleOfAKind(3, this)">3 of a kind</button>
+            <button class="p1" onclick="CheckForMultipleOfAKind(4, this)">4 of a kind</button>
+            <button class="p1" onclick="CheckForFullHouse(this)">Full house</button>
+            <button class="p1" onclick="CheckForLadder(1, this)">Small ladder</button>
+            <button class="p1" onclick="CheckForLadder(2, this)">Big ladder</button>
+            <button class="p1" onclick="CheckChance(this)">Chance</button>
+            <button class="p1" onclick="CheckForMultipleOfAKind(5, this)">Yatzy</button>
+            <button class="lockedScore" id="p1Total">Total</button>
         </div>
 
-        <div class="button-container">
-            <p id="rolls-text">Rolls Left: 3</p>
-            <button class="button" onclick="RollAllDice()">Roll</button>
+        <div id="header-container">
+            <h1 id="playerActive">Player 1's turn</h1>
         </div>
-    </div>
 
-    <div id="player2Container">
-        <button onclick="CheckForDigit(1, this)">Aces</button>
-        <button onclick="CheckForDigit(2, this)">Twos</button>
-        <button onclick="CheckForDigit(3, this)">Threes</button>
-        <button onclick="CheckForDigit(4, this)">Fours</button>
-        <button onclick="CheckForDigit(5, this)">Fives</button>
-        <button onclick="CheckForDigit(6, this)">Sixes</button>
-        <button id="digitTotal">Total</button>
-        <button id="bonus">Bonus</button>
-        <button onclick="CheckForPairs(1, this)">One pair</button>
-        <button onclick="CheckForPairs(2, this)">Two pairs</button>
-        <button onclick="CheckForMultipleOfAKind(3, this)">3 of a kind</button>
-        <button onclick="CheckForMultipleOfAKind(4, this)">4 of a kind</button>
-        <button onclick="CheckForFullHouse(this)">Full house</button>
-        <button onclick="CheckForLadder(1, this)">Small ladder</button>
-        <button onclick="CheckForLadder(2, this)">Big ladder</button>
-        <button onclick="CheckChance(this)">Chance</button>
-        <button onclick="CheckForMultipleOfAKind(5, this)">Yatzy</button>
-        <button id="total">Total</button>
+        <div class="yatzy-container">
+            <div class="dice-container">
+                <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+                <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+                <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+                <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+                <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
+            </div>
+
+            <div class="button-container">
+                <p id="rolls-text">Rolls Left: 3</p>
+                <button class="button" onclick="RollAllDice()">Roll</button>
+            </div>
+        </div>
+
+        <div id="player2Container">
+            <button class="p2" onclick="CheckForDigit(1, this)">Aces</button>
+            <button class="p2" onclick="CheckForDigit(2, this)">Twos</button>
+            <button class="p2" onclick="CheckForDigit(3, this)">Threes</button>
+            <button class="p2" onclick="CheckForDigit(4, this)">Fours</button>
+            <button class="p2" onclick="CheckForDigit(5, this)">Fives</button>
+            <button class="p2" onclick="CheckForDigit(6, this)">Sixes</button>
+            <button class="lockedScore" id="p2DigitTotal">Total</button>
+            <button class="lockedScore" id="p2Bonus">Bonus</button>
+            <button class="p2" onclick="CheckForPairs(1, this)">One pair</button>
+            <button class="p2" onclick="CheckForPairs(2, this)">Two pairs</button>
+            <button class="p2" onclick="CheckForMultipleOfAKind(3, this)">3 of a kind</button>
+            <button class="p2" onclick="CheckForMultipleOfAKind(4, this)">4 of a kind</button>
+            <button class="p2" onclick="CheckForFullHouse(this)">Full house</button>
+            <button class="p2" onclick="CheckForLadder(1, this)">Small ladder</button>
+            <button class="p2" onclick="CheckForLadder(2, this)">Big ladder</button>
+            <button class="p2" onclick="CheckChance(this)">Chance</button>
+            <button class="p2" onclick="CheckForMultipleOfAKind(5, this)">Yatzy</button>
+            <button class="lockedScore" id="p2Total">Total</button>
+        </div>
     </div>
 
     <script src="/js/Yatzy.js"> </script>

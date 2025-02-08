@@ -1,8 +1,9 @@
-let rolls = 3;
+let maxRolls = 3;
+let rolls = maxRolls;
 
-let currentValues = new Array(5)
+let currentValues = new Array(5);
 
-let playerActive = 1;
+let p1Active = true;
 
 // Player 1 stats
 let p1Total = 0;
@@ -16,14 +17,14 @@ let p2DigitTotal = 0;
 let p2DigitCounter = 0;
 let p2TotalCounter = 0;
 
+RollAllDice();
+
 function RollAllDice() {
-    // Rolls amount logic
-    if (rolls <= 0) {
-        rolls = 3;
-    }
+    // If all rolls have been used
+    if (rolls < 0) {return;}
 
     let rolls_counter = document.getElementById("rolls-text")
-    rolls_counter.textContent = "Rolls left: " + rolls;
+    rolls_counter.textContent = "Rolls Left: " + rolls;
     rolls--;
 
     // Rolling logic
@@ -33,12 +34,6 @@ function RollAllDice() {
         if (num != null)
             currentValues[i] = num;
     }
-
-    /*
-    currentValues.forEach(element => {
-        alert(element);
-    });
-    */
 }
 
 function RollDice(image) {
@@ -72,7 +67,6 @@ function CheckForDigit(digit, button) {
     });
 
     AddToSum(result, button, true);
-    button.textContent = result;
 }
 
 // Done
@@ -100,7 +94,6 @@ function CheckForPairs(pairAmount, button) {
     });
 
     AddToSum(result, button, false);
-    button.textContent = result;
 }
 
 // Done
@@ -129,16 +122,14 @@ function CheckForMultipleOfAKind(digit, button) {
 
     if (digit == 5 && result > 0) {
         AddToSum(50, button, false);;
-        button.textContent = 50;
     } else {
         AddToSum(result, button, false);
-        button.textContent = result;
     }
 }
 
 // Done
 function CheckForFullHouse(button) {
-    //if(LockedScore(button)) return;
+    if(LockedScore(button)) return;
 
     currentValues.sort();
 
@@ -151,7 +142,6 @@ function CheckForFullHouse(button) {
         });
     
     AddToSum(result, button, false);
-    button.textContent = result;
 }
 
 // Done
@@ -178,7 +168,6 @@ function CheckForLadder(startDigit, button) {
     }
 
     AddToSum(result, button, false);
-    button.textContent = result;
 }
 
 // Done
@@ -192,39 +181,90 @@ function CheckChance(button) {
     });
 
     AddToSum(result, button, false);;
-    button.textContent = result;
 }
 
 // Done
-// USE THIS FOR THE " PLAYER" SHIT
 function LockedScore(button) {
     if (button.classList.contains("lockedScore"))
+        return true;
+    else if (button.classList.contains("p1") && !p1Active || button.classList.contains("p2") && p1Active)
         return true;
     button.classList.add("lockedScore");
     return false;
 }
 
 function AddToSum(score, button, upperSquare) {
-    button.textContent = score;
-
-    if(upperSquare) {
-        p1DigitTotal += score;
-        document.getElementById("p1DigitTotal").textContent = p1DigitTotal;
-        p1DigitCounter++;
-        if (p1DigitCounter >= 6) {
-            if(p1DigitTotal >= 63) {
-                p1Total += 50;
-                document.getElementById("p1Bonus").textContent = 50;
-            } else {
-                document.getElementById("p1Bonus").textContent = 0;
+    // Makes the button an X if 0 else score
+    if (score == 0) button.textContent = "X";
+    else button.textContent = score;
+   
+    if (p1Active) {
+        if(upperSquare) {
+            p1DigitTotal += score;
+            document.getElementById("p1DigitTotal").textContent = p1DigitTotal;
+            p1DigitCounter++;
+            if (p1DigitCounter >= 6) {
+                if(p1DigitTotal >= 63) {
+                    p1Total += 50;
+                    document.getElementById("p1Bonus").textContent = 50;
+                } else {
+                    document.getElementById("p1Bonus").textContent = "X";
+                }
             }
         }
+
+        p1Total += score;
+    
+        document.getElementById("p1Total").textContent = p1Total;
+
+        p1TotalCounter++;
+    } else {
+        if(upperSquare) {
+            p2DigitTotal += score;
+            document.getElementById("p2DigitTotal").textContent = p2DigitTotal;
+            p2DigitCounter++;
+            if (p2DigitCounter >= 6) {
+                if(p2DigitTotal >= 63) {
+                    p2Total += 50;
+                    document.getElementById("p2Bonus").textContent = 50;
+                } else {
+                    document.getElementById("p2Bonus").textContent = "X";
+                }
+            }
+        }
+
+        p2Total += score;
+    
+        document.getElementById("p2Total").textContent = p2Total;
+
+        p2TotalCounter++;
     }
 
-    p1Total += score;
-   
-    document.getElementById("p1Total").textContent = p1Total;
+    p1Active = !p1Active;
 
-    p1TotalCounter++;
-    if (p1TotalCounter >= 15) {}
+    // Changes player active header text
+    if (p1Active)
+        document.getElementById("playerActive").textContent = "Player 1's turn";
+    else   
+        document.getElementById("playerActive").textContent = "Player 2's turn";
+    
+    // Resets rolls after value assigned
+    rolls = maxRolls;
+    let rolls_counter = document.getElementById("rolls-text");
+    rolls_counter.textContent = "Rolls Left: " + rolls;
+    RollAllDice();
+
+    // Ends game after last turn
+    if (p2TotalCounter >= 15) {
+        EndGame();
+    }
+}
+
+function EndGame() {
+    if (p1Total > p2Total)
+        alert("Player 1 won!")
+    else if (p1Total < p2Total)
+        alert("Player 2 won!")
+    else
+        alert("You tied!")
 }
