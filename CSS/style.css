@@ -9,7 +9,7 @@ body {
     grid-row-gap: 0px;
     grid-template-areas: 
     ". . ."
-    ". yatzy-container ."
+    "player1Container yatzy-container player2Container"
     ". . .";
 }
 
@@ -30,11 +30,11 @@ body {
 }
 
 .dice-container {
-    grid: dice-container;
+    grid-area: dice-container;
 }
 
 .button-container {
-    grid: button-container
+    grid-area: button-container
 }
 
 .dice {
@@ -44,4 +44,12 @@ body {
 .locked {
     background-color: rgba(255, 0, 0, 0.514);
     
+}
+
+#player1Container {
+    grid-area: player1Container;
+}
+
+#player2Container {
+    grid-area: player2Container;
 }
