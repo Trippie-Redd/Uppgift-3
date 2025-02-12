@@ -1,35 +1,39 @@
+body {
+  overflow: hidden;
+}
+
 #yatzy {
   height: 100vh;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
-  grid-template-areas: "player1Container header-container player2Container" "player1Container yatzy-container player2Container" "player1Container . player2Container";
+  grid-template-areas: "player1-container header-container player2-container" "player1-container yatzy-container player2-container" "player1-container . player2-container";
 }
-#yatzy #player1Container {
-  grid-area: player1Container;
+#yatzy #player1-container {
+  grid-area: player1-container;
 }
-#yatzy #player2Container {
-  grid-area: player2Container;
+#yatzy #player2-container {
+  grid-area: player2-container;
 }
-#yatzy #player2Container, #yatzy #player1Container {
+#yatzy #player2-container, #yatzy #player1-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-#yatzy #player2Container button, #yatzy #player1Container button {
+#yatzy #player2-container button, #yatzy #player1-container button {
   width: 30%;
   height: 4%;
   border: none;
 }
-#yatzy #player2Container button:hover, #yatzy #player1Container button:hover {
+#yatzy #player2-container button:hover, #yatzy #player1-container button:hover {
   background-color: rgb(206, 206, 206);
 }
-#yatzy #player2Container .lockedScore, #yatzy #player1Container .lockedScore {
+#yatzy #player2-container .lockedScore, #yatzy #player1-container .lockedScore {
   background-color: rgb(164, 164, 164);
 }
-#yatzy #player2Container .lockedScore:hover, #yatzy #player1Container .lockedScore:hover {
+#yatzy #player2-container .lockedScore:hover, #yatzy #player1-container .lockedScore:hover {
   background-color: rgb(164, 164, 164);
 }
 #yatzy #header-container {
@@ -51,6 +55,9 @@
 }
 #yatzy .yatzy-container .dice-container {
   grid-area: dice-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #yatzy .yatzy-container .dice-container .dice {
   width: 10%;
