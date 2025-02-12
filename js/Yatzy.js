@@ -38,7 +38,7 @@ function RollAllDice() {
 
 function RollDice(image) {
     if (image.classList.contains("locked")) {
-        //image.classList.remove("locked");
+        image.classList.remove("locked");
         return null;
     }
 
