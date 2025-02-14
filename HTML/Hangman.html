@@ -10,13 +10,14 @@
     <div id="hangman">
         <div id="guess-container">
             <p>Guesses</p>
-            <form action="">
-                <label for="guess">Guess:</label>
-                <input type="text" id="guess" name="guess" maxlength="1" minlength="1" required><br>
-                
-            </form>
+            <label for="guess">Guess:</label>
+            <input type="text" id="guess" name="guess" maxlength="1" minlength="1" required onkeydown="handleGuess(event)"></input>
         </div>
-        <div id="visual-container">Visual</div>
+        <div id="visual-container">
+            <p id="temp-result"></p>
+        </div>
     </div>
+
+    <script src="/js/Hangman.js"></script>
 </body>
 </html>
