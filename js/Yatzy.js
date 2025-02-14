@@ -9,13 +9,13 @@ let p1Active = true;
 let p1Total = 0;
 let p1DigitTotal = 0;
 let p1DigitCounter = 0;
-let p1TotalCounter = 0;
 
 // Player 2 stats
 let p2Total = 0;
 let p2DigitTotal = 0;
 let p2DigitCounter = 0;
-let p2TotalCounter = 0;
+
+let totalCounter = 0;
 
 RollAllDice();
 
@@ -53,6 +53,15 @@ function LockDice(image) {
     } else {
         image.classList.add("locked");
     }
+}
+
+//GÖRHÄR
+function RevealType(button) {
+    let buttonValue = button.textContent;
+
+
+
+    //button.textContent = "FN";
 }
 
 // Scores
@@ -180,7 +189,7 @@ function CheckChance(button) {
         result += element;
     });
 
-    AddToSum(result, button, false);;
+    AddToSum(result, button, false);
 }
 
 // Done
@@ -216,8 +225,6 @@ function AddToSum(score, button, upperSquare) {
         p1Total += score;
     
         document.getElementById("p1Total").textContent = p1Total;
-
-        p1TotalCounter++;
     } else {
         if(upperSquare) {
             p2DigitTotal += score;
@@ -236,11 +243,10 @@ function AddToSum(score, button, upperSquare) {
         p2Total += score;
     
         document.getElementById("p2Total").textContent = p2Total;
-
-        p2TotalCounter++;
     }
 
     p1Active = !p1Active;
+    totalCounter++;
 
     // Changes player active header text
     if (p1Active)
@@ -255,7 +261,7 @@ function AddToSum(score, button, upperSquare) {
     RollAllDice();
 
     // Ends game after last turn
-    if (p2TotalCounter >= 15) {
+    if (totalCounter >= 30) {
         EndGame();
     }
 }

@@ -1,16 +1,85 @@
-let allowedChars = ['.', ',', ' ', ':', ';', '?', '!'];
-let guessedChars =[];
+let allowedChars = ['.', ',', ' ', "'", ':', ';', '?', '!'];
+let guessedChars = [];
 
-let wrongGuesses = 7;
+let wrongGuessesMax = 7;
+let wrongGuesses = wrongGuessesMax;
 
-let correctWord = "Hol up";
-let resultWord = hideString(correctWord).split("");
+let correctWord;
+let resultWord;
 
-document.getElementById("temp-result").textContent = resultWord.join("");
+// Main code for making a new guess word
+function getInput(event) {
+    if (event.key !== 'Enter')
+        return;
 
+    let input = document.getElementById("wordInput").value;
+    let inputArr = input.toUpperCase().split("");
+
+    // Returns if not a valid word
+    for(let i = 0; i < inputArr.length; i++) {
+        if (!isLetterOrExclusion(inputArr[i])) {
+            return;
+        }
+    }
+
+    correctWord = input;
+
+    resultWord = hideString(correctWord).split("");
+    document.getElementById("temp-result").textContent = resultWord.join("");
+
+    // Clears input field and guessed chars, resets guesses
+    document.getElementById("wordInput").value = "";
+    guessedChars = [];
+    wrongGuesses = wrongGuessesMax;
+}
+
+// Return true if letter or in allowedChars/ false if not
+function isLetterOrExclusion(char) {
+    for(let i = 0; i < allowedChars.length; i++) 
+        if (char == allowedChars[i]) 
+            return true;
+        
+    return isLetter(char);
+}
+
+// Return true if letter/ false if not
+function isLetter(char) {
+    return (char.length === 1) && (char >= 'A' && char <= 'Z');
+}
+
+// Returns a hidden string
+function hideString(str) {
+    let result = "";
+
+    // Replace all letters
+    for(let i = 0; i < str.length; i++) {
+        let charDefined = false;
+
+        // Checks for any allowed chars
+        for(let j = 0; j < allowedChars.length; j++) {
+            if(str[i] == allowedChars[j]) {
+                result += str[i];
+                charDefined = true;
+                break;
+            }
+        }
+        
+        // Replaces letters with underscores
+        if (!charDefined)
+            result += "_";
+    }
+
+    return result;
+}
+
+// Main guessing code
 function handleGuess(event) {
-   // Only works for enter
+    // Only works for enter
     if(event.key !== 'Enter')
+        return;
+
+    // If there is no correct wors
+    if(correctWord == null)
         return;
 
     // Gets single char
@@ -62,11 +131,6 @@ function checkIfCharInCorrectWord(char) {
     return inWord;
 }
 
-// Return true if letter/ false if not
-function isLetter(char) {
-    return (char.length === 1) && (char >= 'A' && char <= 'Z');
-}
-
 // Checks if char has already been unlocked
 function isUnlocked(char) {
     for(let i = 0; i < guessedChars.length; i++)
@@ -74,29 +138,4 @@ function isUnlocked(char) {
             return true;
     
     return false;
-}
-
-// Returns a hidden string
-function hideString(str) {
-    let result = "";
-
-    // Replace all letters
-    for(let i = 0; i < str.length; i++) {
-        let charDefined = false;
-
-        // Checks for any allowed chars
-        for(let j = 0; j < allowedChars.length; j++) {
-            if(str[i] == allowedChars[j]) {
-                result += str[i];
-                charDefined = true;
-                break;
-            }
-        }
-        
-        // Replaces letters with underscores
-        if (!charDefined)
-            result += "_";
-    }
-
-    return result;
 }
