@@ -1,4 +1,6 @@
 let player1Active = true;
+let counter = 0;
+let currentStatus = Array(9).fill(0);
 
 const winPatterns = [
     [0, 1, 2],
@@ -11,62 +13,35 @@ const winPatterns = [
     [6, 7, 8]
 ];
 
-let currentStatus = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-
 function handleBoxPressed(button, CSIndex) {
-    if(lockedButton(button, CSIndex))
-        return;
-
-    if(player1Active) {
-        currentStatus[CSIndex] = 1;
-        button.textContent = "X";
-    } else {
-        currentStatus[CSIndex] = 2;
-        button.textContent = "O";
-    }
-
-    if(!CheckIfWin())
-        return; 
-    
-    if(player1Active)
-        alert("Player 1 won");
-    else
-        alert("Player 2 won");
-    
-    player1Active = !player1Active;
-}
-
-function lockedButton(button, CSIndex) {
-    if (button.classList.contains("lockedButton"))
-        return true;
-    else if (currentStatus[CSIndex] > 0)
-        return true;
+    if (button.classList.contains("lockedButton") || currentStatus[CSIndex] > 0) return;
     button.classList.add("lockedButton");
-    return false;
-}
-
-function CheckIfWin() {
-    for(let pattern of winPatterns) {
-        let num1 = pattern[0];
-        let num2 = pattern[1];
-        let num3 = pattern[2];
-
-        if(currentStatus[num1] == currentStatus[num2] && currentStatus[num2] == currentStatus[num3] && currentStatus[num1] > 0)
-            return true;
-    }
     
-    console.log("Not won");
-    return false;
+    currentStatus[CSIndex] = player1Active ? 1 : 2;
+    button.textContent = player1Active ? "X" : "O";
+    counter++;
+    
+    let gameOver = false;
+    for(let pattern of winPatterns)
+        if(currentStatus[pattern[0]] == currentStatus[pattern[1]] && currentStatus[pattern[1]] == currentStatus[pattern[2]] && currentStatus[pattern[0]] > 0) {
+            gameOver = true;
+            break;
+        }
+    
+    if(gameOver || counter >= 9) {
+        alert(gameOver ? `Player ${player1Active ? 1 : 2} won` : "It's a draw!");
+        reset();
+    } else 
+        player1Active = !player1Active;
 }
 
 function reset() {
-    let lockedButtons = document.getElementsByClassName("lockedButton");
-
-    for(let i = 0; i < lockedButtons.length; i++) {
-        lockedButtons[i].classList.remove("lockedButton");
-        lockedButtons[i].textContent = "";
-    }
-
-    for(let i = 0; i < currentStatus.length; i++)
-        currentStatus[i] = 0;
+    document.querySelectorAll(".box").forEach(button => {
+        button.classList.remove("lockedButton");
+        button.textContent = "";
+    });
+    
+    currentStatus.fill(0);
+    counter = 0;
+    player1Active = true;
 }

@@ -30,6 +30,7 @@ function getInput(event) {
     // Clears input field and guessed chars, resets guesses
     document.getElementById("wordInput").value = "";
     guessedChars = [];
+    updateGuessedCharsText(); 
     wrongGuesses = wrongGuessesMax;
 }
 
@@ -104,6 +105,7 @@ function handleGuess(event) {
 
     // Adds char to already unlocked
     guessedChars.push(guessChar);
+    updateGuessedCharsText();
 
     // Clears input field
     document.getElementById("guess").value = "";
@@ -138,4 +140,16 @@ function isUnlocked(char) {
             return true;
     
     return false;
+}
+
+function updateGuessedCharsText() {
+    let text = "Guessed letters:";
+
+    guessedChars.sort();
+
+    for(let i = 0; i < guessedChars.length; i++) {
+        text += " " + guessedChars[i];
+    }
+
+    document.getElementById("guessedLetters").textContent = text;
 }

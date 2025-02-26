@@ -21,7 +21,7 @@ RollAllDice();
 
 function RollAllDice() {
     // If all rolls have been used
-    if (rolls < 0) {return;}
+    if (rolls < 0) { return; }
 
     let rolls_counter = document.getElementById("rolls-text")
     rolls_counter.textContent = "Rolls Left: " + rolls;
@@ -48,11 +48,7 @@ function RollDice(image) {
 }
 
 function LockDice(image) {
-    if (image.classList.contains("locked")) {
-        image.classList.remove("locked");
-    } else {
-        image.classList.add("locked");
-    }
+    image.classList.contains("locked") ? image.classList.remove("locked") : image.classList.add("locked");
 }
 
 //GÖRHÄR
@@ -129,11 +125,8 @@ function CheckForMultipleOfAKind(digit, button) {
             tempCounter = 1;
     }
 
-    if (digit == 5 && result > 0) {
-        AddToSum(50, button, false);;
-    } else {
-        AddToSum(result, button, false);
-    }
+
+    AddToSum((digit == 5 && result > 0 ? 50 : result), button, false);
 }
 
 // Done
@@ -194,9 +187,7 @@ function CheckChance(button) {
 
 // Done
 function LockedScore(button) {
-    if (button.classList.contains("lockedScore"))
-        return true;
-    else if (button.classList.contains("p1") && !p1Active || button.classList.contains("p2") && p1Active)
+    if (button.classList.contains("lockedScore") || button.classList.contains("p1") && !p1Active || button.classList.contains("p2") && p1Active)
         return true;
     button.classList.add("lockedScore");
     return false;
@@ -204,8 +195,7 @@ function LockedScore(button) {
 
 function AddToSum(score, button, upperSquare) {
     // Makes the button an X if 0 else score
-    if (score == 0) button.textContent = "X";
-    else button.textContent = score;
+    button.textContent = score == 0 ? "X" : score;
    
     if (p1Active) {
         if(upperSquare) {
@@ -249,10 +239,7 @@ function AddToSum(score, button, upperSquare) {
     totalCounter++;
 
     // Changes player active header text
-    if (p1Active)
-        document.getElementById("playerActive").textContent = "Player 1's turn";
-    else   
-        document.getElementById("playerActive").textContent = "Player 2's turn";
+    document.getElementById("playerActive").textContent = p1Active ? "Player 1's turn" : "Player 2's turn";
     
     // Resets rolls after value assigned
     rolls = maxRolls;
