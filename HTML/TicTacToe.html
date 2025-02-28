@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicTacToe</title>
+    <link rel="stylesheet" href="/my-bulma-project.css">
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
     <div id="ticTacToe">
-        <div id="game-container">
-            <button class="box" onclick="handleBoxPressed(this, 0)">1</button>
-            <button class="box" onclick="handleBoxPressed(this, 1)">2</button>
-            <button class="box" onclick="handleBoxPressed(this, 2)">3</button>
-            <button class="box" onclick="handleBoxPressed(this, 3)">4</button>
-            <button class="box" onclick="handleBoxPressed(this, 4)">5</button>
-            <button class="box" onclick="handleBoxPressed(this, 5)">6</button>
-            <button class="box" onclick="handleBoxPressed(this, 6)">7</button>
-            <button class="box" onclick="handleBoxPressed(this, 7)">8</button>
-            <button class="box" onclick="handleBoxPressed(this, 8)">9</button>
+        <div id="game-container" class="box">
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 0)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 1)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 2)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 3)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 4)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 5)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 6)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 7)"></button>
+            <button class="input-box button is-size-2" onclick="handleBoxPressed(this, 8)"></button>
         </div>
 
-        <button onclick="reset()">Reset</button>
+        <div id="reset-container">
+            <button class="button is-large" onclick="reset()">Reset</button>
+        </div>
     </div>
 
     <script src="/js/TicTacToe.js"></script>

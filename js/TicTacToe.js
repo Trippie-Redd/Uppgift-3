@@ -14,11 +14,10 @@ const winPatterns = [
 ];
 
 function handleBoxPressed(button, CSIndex) {
-    if (button.classList.contains("lockedButton") || currentStatus[CSIndex] > 0) return;
-    button.classList.add("lockedButton");
+    button.disabled = true;
     
     currentStatus[CSIndex] = player1Active ? 1 : 2;
-    button.textContent = player1Active ? "X" : "O";
+    button.textContent = player1Active ? "x" : "o";
     counter++;
     
     let gameOver = false;
@@ -36,8 +35,8 @@ function handleBoxPressed(button, CSIndex) {
 }
 
 function reset() {
-    document.querySelectorAll(".box").forEach(button => {
-        button.classList.remove("lockedButton");
+    document.querySelectorAll(".input-box").forEach(button => {
+        button.disabled = false;
         button.textContent = "";
     });
     

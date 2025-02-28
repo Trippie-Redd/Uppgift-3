@@ -1,3 +1,7 @@
+@font-face {
+  font-family: custom-font;
+  src: url("/assets/fonts/Very_very_punk_font.otf") format("opentype");
+}
 body {
   overflow: hidden;
 }
@@ -84,4 +88,46 @@ body {
 #hangman #visual-container {
   grid-area: visual-container;
   background-color: rgb(196, 3, 3);
+}
+
+#ticTacToe {
+  height: 100vh;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-areas: ". . ." ". game-container . " ". reset-container .";
+  width: 100%;
+  height: 100%;
+  --s:200px;
+  /* control the size */
+  --c1:#1d1d1d;
+  --c2:#4e4f51;
+  --c3:#3c3c3c;
+  background: repeating-conic-gradient(from 30deg, rgba(0, 0, 0, 0) 0 120deg, var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577), repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
+  background-size: var(--s) calc(var(--s) * 0.577);
+}
+#ticTacToe #game-container {
+  grid-area: game-container;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 1%;
+  background-color: rgb(206, 206, 206);
+}
+#ticTacToe #game-container .input-box {
+  width: 31.5%;
+  height: 32%;
+  font-family: custom-font;
+}
+#ticTacToe #reset-container {
+  grid-area: reset-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#feedback {
+  background-color: white;
 }/*# sourceMappingURL=style.css.map */
