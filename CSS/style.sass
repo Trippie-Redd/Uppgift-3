@@ -1,11 +1,19 @@
+// Yatzy color palette
+$muted-gold:    #D4B483
+$muted-coral:   #E67A47
+$soft-beige:    #E5D8B3
+$midnight-blue: #121e29
+$charcoal:      #333333
+    
 $red: rgb(196, 3, 3)
+$transparent-red: #92000079
 $buttonColor: rgb(206, 206, 206)
 $lockedButtonColor: rgb(164, 164, 164)
 $tan: rgb(210, 180, 140)
 
 // Fonts
 @font-face 
-    font-family: custom-font
+    font-family: very-very-punk
     src: url("/assets/fonts/Very_very_punk_font.otf") format("opentype")
 
 body
@@ -19,6 +27,15 @@ body
     grid-template-columns: 1fr 2fr 1fr
     grid-template-rows: 1fr 3fr 1fr
     grid-template-areas: "player1-container header-container player2-container" "player1-container yatzy-container player2-container" "player1-container . player2-container"
+
+    width: 100%
+    height: 100%
+    background: $midnight-blue
+    --gap:5em
+    --line:1px
+    --color:rgba(255, 255, 255, 0.2)
+    background-image: linear-gradient(-90deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap)), linear-gradient(0deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap))
+    background-size: var(--gap) var(--gap)
 
     #player1-container
         grid-area: player1-container
@@ -36,50 +53,61 @@ body
             width: 30%
             height: 4%
             border: none
+            background-color: $soft-beige
+            color: $charcoal
 
             &:hover
-                background-color: $buttonColor
+                background-color: $muted-gold
             
         .lockedScore
-            background-color: $lockedButtonColor
+            background-color: $muted-coral
 
             &:hover
-                background-color: $lockedButtonColor
+                background-color: $muted-coral
     
     #header-container
         grid-area: header-container
-
         display: flex
         justify-content: center
         align-items: center
 
         #playerActive
-            color: $red
+            color: $muted-gold
+            //font-family: very-very-punk
 
     .yatzy-container
         grid-area: yatzy-container
-        background-color: rgb(1, 200 , 45)
+        background-color: $soft-beige
 
         display: grid
         grid-template-columns: 1fr
         grid-template-rows: 2.5fr 1fr
         grid-template-areas: "dice-container" "button-container" 
 
-
         .dice-container
             grid-area: dice-container
             display: flex
             justify-content: center
             align-items: center
+            gap: 2%
 
             .dice
                 width: 10%
+                background-color: $soft-beige
             
             .locked
-                background-color: $red
+                background-color: $transparent-red
+                border-radius: 14%
         
         .button-container
             grid-area: button-container
+            display: flex
+            justify-content: center
+            align-items: center
+            background-color: $muted-coral
+            color: $charcoal
+
+            gap: 5%
 
 #hangman
     height: 100vh
@@ -133,7 +161,7 @@ body
             width: 31.5%
             height: 32%
 
-            font-family: custom-font
+            font-family: very-very-punk
     
     #reset-container
         grid-area: reset-container

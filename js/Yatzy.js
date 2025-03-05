@@ -51,15 +51,6 @@ function LockDice(image) {
     image.classList.contains("locked") ? image.classList.remove("locked") : image.classList.add("locked");
 }
 
-//GÖRHÄR
-function RevealType(button) {
-    let buttonValue = button.textContent;
-
-
-
-    //button.textContent = "FN";
-}
-
 // Scores
 // Done
 function CheckForDigit(digit, button) {

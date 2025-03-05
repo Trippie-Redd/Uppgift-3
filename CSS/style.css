@@ -1,5 +1,5 @@
 @font-face {
-  font-family: custom-font;
+  font-family: very-very-punk;
   src: url("/assets/fonts/Very_very_punk_font.otf") format("opentype");
 }
 body {
@@ -13,6 +13,14 @@ body {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas: "player1-container header-container player2-container" "player1-container yatzy-container player2-container" "player1-container . player2-container";
+  width: 100%;
+  height: 100%;
+  background: #121e29;
+  --gap:5em;
+  --line:1px;
+  --color:rgba(255, 255, 255, 0.2);
+  background-image: linear-gradient(-90deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap)), linear-gradient(0deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap));
+  background-size: var(--gap) var(--gap);
 }
 #yatzy #player1-container {
   grid-area: player1-container;
@@ -30,15 +38,17 @@ body {
   width: 30%;
   height: 4%;
   border: none;
+  background-color: #E5D8B3;
+  color: #333333;
 }
 #yatzy #player2-container button:hover, #yatzy #player1-container button:hover {
-  background-color: rgb(206, 206, 206);
+  background-color: #D4B483;
 }
 #yatzy #player2-container .lockedScore, #yatzy #player1-container .lockedScore {
-  background-color: rgb(164, 164, 164);
+  background-color: #E67A47;
 }
 #yatzy #player2-container .lockedScore:hover, #yatzy #player1-container .lockedScore:hover {
-  background-color: rgb(164, 164, 164);
+  background-color: #E67A47;
 }
 #yatzy #header-container {
   grid-area: header-container;
@@ -47,11 +57,11 @@ body {
   align-items: center;
 }
 #yatzy #header-container #playerActive {
-  color: rgb(196, 3, 3);
+  color: #D4B483;
 }
 #yatzy .yatzy-container {
   grid-area: yatzy-container;
-  background-color: rgb(1, 200, 45);
+  background-color: #E5D8B3;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2.5fr 1fr;
@@ -62,15 +72,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2%;
 }
 #yatzy .yatzy-container .dice-container .dice {
   width: 10%;
+  background-color: #E5D8B3;
 }
 #yatzy .yatzy-container .dice-container .locked {
-  background-color: rgb(196, 3, 3);
+  background-color: rgba(146, 0, 0, 0.4745098039);
+  border-radius: 14%;
 }
 #yatzy .yatzy-container .button-container {
   grid-area: button-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E67A47;
+  color: #333333;
+  gap: 5%;
 }
 
 #hangman {
@@ -119,7 +138,7 @@ body {
 #ticTacToe #game-container .input-box {
   width: 31.5%;
   height: 32%;
-  font-family: custom-font;
+  font-family: very-very-punk;
 }
 #ticTacToe #reset-container {
   grid-area: reset-container;

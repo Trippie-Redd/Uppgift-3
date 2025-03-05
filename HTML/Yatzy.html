@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yatzy</title>
-    <link rel="stylesheet" href="my-bulma-project.css"> 
+    <link rel="stylesheet" href="/my-bulma-project.css"> 
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
     <div id="yatzy">
         <div id="player1-container">
-            <button class="p1" onclick="CheckForDigit(1, this)" onmouseover="RevealType(this)">Aces</button>
+            <button class="p1" onclick="CheckForDigit(1, this)">Aces</button>
             <button class="p1" onclick="CheckForDigit(2, this)">Twos</button>
             <button class="p1" onclick="CheckForDigit(3, this)">Threes</button>
             <button class="p1" onclick="CheckForDigit(4, this)">Fours</button>
@@ -31,10 +31,12 @@
         </div>
 
         <div id="header-container">
-            <h1 id="playerActive">Player 1's turn</h1>
+            <div id="header-container-inner" class="box">
+                <h1 id="playerActive" class="is-size-1">Player 1's turn</h1>
+            </div>
         </div>
 
-        <div class="yatzy-container">
+        <div class="yatzy-container box">
             <div class="dice-container">
                 <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
                 <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
@@ -43,7 +45,7 @@
                 <img onclick="LockDice(this)" src="/assets/yatzy/dice1.png" alt="dice" class="dice">
             </div>
 
-            <div class="button-container">
+            <div class="button-container box">
                 <p id="rolls-text">Rolls Left: 3</p>
                 <button class="button" onclick="RollAllDice()">Roll</button>
             </div>
