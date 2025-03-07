@@ -17,9 +17,9 @@ let p2DigitCounter = 0;
 
 let totalCounter = 0;
 
-RollAllDice();
+RollAllDice(true);
 
-function RollAllDice() {
+function RollAllDice(resetAll) {
     // If all rolls have been used
     if (rolls < 0) { return; }
 
@@ -30,16 +30,16 @@ function RollAllDice() {
     // Rolling logic
     let die = document.getElementsByClassName("dice");
     for (let i = 0; i < die.length; i++) {
-        let num = RollDice(die[i]);
+        let num = RollDice(die[i], resetAll);
         if (num != null)
             currentValues[i] = num;
     }
 }
 
-function RollDice(image) {
+function RollDice(image, reset) {
     if (image.classList.contains("locked")) {
         image.classList.remove("locked");
-        return null;
+        if (!reset) { return null };
     }
 
     let num = Math.floor(Math.random() * 6) + 1;
@@ -236,7 +236,8 @@ function AddToSum(score, button, upperSquare) {
     rolls = maxRolls;
     let rolls_counter = document.getElementById("rolls-text");
     rolls_counter.textContent = "Rolls Left: " + rolls;
-    RollAllDice();
+
+    RollAllDice(true);
 
     // Ends game after last turn
     if (totalCounter >= 30) {

@@ -1,14 +1,7 @@
-// Yatzy color palette
-$muted-gold:    #D4B483
-$muted-coral:   #E67A47
-$soft-beige:    #E5D8B3
-$midnight-blue: #121e29
-$charcoal:      #333333
-    
+// Temp/misc color palette
 $red: rgb(196, 3, 3)
 $transparent-red: #92000079
 $buttonColor: rgb(206, 206, 206)
-$lockedButtonColor: rgb(164, 164, 164)
 $tan: rgb(210, 180, 140)
 
 // Fonts
@@ -20,6 +13,13 @@ body
     overflow: hidden
 
 #yatzy
+    // Yatzy color palette
+    $muted-gold:      #D4B483
+    $muted-coral:     #E67A47
+    $soft-beige:      #E5D8B3
+    $midnight-blue:   #121e29
+    $charcoal:        #333333
+
     height: 100vh
     min-height: 100vh
     display: grid
@@ -92,7 +92,7 @@ body
             gap: 2%
 
             .dice
-                width: 10%
+                width: 13%
                 background-color: $soft-beige
             
             .locked
@@ -110,23 +110,89 @@ body
             gap: 5%
 
 #hangman
-    height: 100vh
-    min-height: 100vh
+    // Hangman color palette
+    $pakistan-green:  #143109
+    $sage:            #AAAE7F
+    $beige:           #D0D6B3
+    $sea-salt:        #F7F7F7
+    $anti-flash-white:#EFEFEF 
+
     display: grid
+    min-height: 100vh
+    min-width: 100vw
     grid-template-columns: 1fr 3fr 3fr 1fr
     grid-template-rows: 1fr 5fr 1fr
-
     grid-template-areas: ". . . ." ". guess-container visual-container ." ". . . ."
+
+    // ------- UIverse bakground ------- //
+    width: 100%
+    height: 100%
+    --s:84px
+    --c1:#f2f2f2
+    --c2:#cdcbcc
+    --c3:#999999
+    --_g:0 120deg, #0000 0
+    background: conic-gradient(from 0deg at calc(500% / 6) calc(100% / 3), var(--c3) var(--_g)), conic-gradient(from -120deg at calc(100% / 6) calc(100% / 3), var(--c2) var(--_g)), conic-gradient(from 120deg at calc(100% / 3) calc(500% / 6), var(--c1) var(--_g)), conic-gradient(from 120deg at calc(200% / 3) calc(500% / 6), var(--c1) var(--_g)), conic-gradient(from -180deg at calc(100% / 3) 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at calc(200% / 3) 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% calc(100% / 3), var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0)
+    background-size: calc(var(--s) * 1.732) var(--s)
+    // ------- UIverse bakground ------- //
 
     #guess-container
         grid-area: guess-container
-        background-color: $buttonColor
-    
+        background-color: $pakistan-green
+        color: white
+        padding: 20px
+        border-radius: 8px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+
+        p 
+            margin: 5px 0
+        
+        label 
+            font-weight: bold
+
+        input
+            width: 50px
+            padding: 5px
+            text-align: center
+            font-size: 18px
+            border: 2px solid $sage
+            border-radius: 5px
+            outline: none
+            margin: 10px 0
+            background-color: $sea-salt
+            color: $pakistan-green
+        
+        input:focus 
+            border-color: $sage
+
+        #guessedLetters 
+            font-size: 14px
+            margin-top: 10px
+            text-align: center
+            color: $sage
+
     #visual-container
         grid-area: visual-container
-        background-color: $red 
+        background-color: $sage
+        color: $pakistan-green
+        padding: 20px
+        border-radius: 8px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
     
 #ticTacToe
+    // TicTacToe color palette
+    $rich-black:      #001011
+    $midnight-green:  #093A3E
+    $verdigris:       #3AAFB9
+    $electric-blue:   #64E9EE
+    $light-sky-blue:  #97C8EB
+
     height: 100vh
     min-height: 100vh
     display: grid
@@ -170,4 +236,10 @@ body
         align-items: center
 
 #feedback
+    // Home/feedback page color palette
+    $sunglow:         #FFD23F
+    $blue-munsell:    #048BA8
+    $blue-charcoal:   #2E4057
+    $jet:             #2F2D2E
+    $cocoa-brown:     #DA7635
     background-color: white
