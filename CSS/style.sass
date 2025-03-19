@@ -109,7 +109,7 @@ body
 
             gap: 5%
 
-#hangman-container
+#hangman
     // Hangman color palette
     $pakistan-green:  #143109
     $sage:            #AAAE7F
@@ -121,7 +121,12 @@ body
     flex-direction: column
     align-items: center
     min-height: 100vh
-    background-color: $beige
+    
+    width: 100%
+    height: 100%
+    background: repeating-linear-gradient(-45deg, $sage, $pakistan-green 10px, $sage 10px, $pakistan-green 20px) $sage
+    background-blend-mode: screen
+    
     color: $pakistan-green
     font-family: Arial, sans-serif
 
@@ -167,10 +172,11 @@ body
             border-color: $pakistan-green
     
     img
-        width: 80%
-        border-radius: 10%
+        padding-top: 20px
 
-    
+        width: 100%
+        border-radius: 7%
+   
 #ticTacToe
     // TicTacToe color palette
     $rich-black:      #001011
@@ -182,7 +188,7 @@ body
     height: 100vh
     min-height: 100vh
     display: grid
-    grid-template-columns: 1fr 2fr 1fr
+    grid-template-columns: 1fr 1.4fr 1fr
     grid-template-rows: 1fr 5fr 1fr
 
     grid-template-areas: ". . ." ". game-container . " ". reset-container ." 
@@ -210,7 +216,7 @@ body
         background-color: $buttonColor
 
         .input-box 
-            width: 31.5%
+            width: 32%
             height: 32%
 
             font-family: very-very-punk

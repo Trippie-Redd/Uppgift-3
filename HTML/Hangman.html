@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
+    <link rel="stylesheet" href="/my-bulma-project.css"> 
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
-    <div id="hangman-container">
+    <div id="hangman">
         <header>
-            <h1>Hangman Game</h1>
+            <div class="box">
+                <h1 class="title is-1">Hangman Game</h1>
+            </div>
         </header>
         <main>
             <div id="game-area">
@@ -31,6 +34,7 @@
             <img src="/assets/hangman/0.jpg" alt="hangman" id="hangmanImg">
         </div>
     </div>
+
     <script src="/js/Hangman.js"></script>
 </body>
 </html>
