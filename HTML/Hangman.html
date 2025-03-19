@@ -7,23 +7,30 @@
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
-    <div id="hangman">
-        <div id="guess-container">
-            <p>Guesses</p>
-            <label for="guess">Guess:</label>
-            <input type="text" id="guess" name="guess" maxlength="1" minlength="1" required onkeydown="handleGuess(event)"></input>
-
-            <p id="guessedLetters">Guessed letters: </p>
-        </div>
-        <div id="visual-container">
-            <p>Enter word</p>
-            <label for="wordInput">Word:</label>
-            <input type="text" id="wordInput" name="wordInput" onkeydown="getInput(event)"></input>
-
-            <p id="temp-result"></p>
+    <div id="hangman-container">
+        <header>
+            <h1>Hangman Game</h1>
+        </header>
+        <main>
+            <div id="game-area">
+                <div id="visual-container">
+                    <p>Enter Word</p>
+                    <label for="wordInput">Word:</label>
+                    <input type="text" id="wordInput" name="wordInput" onkeydown="getInput(event)">
+                    <p id="temp-result"></p>
+                </div>
+                <div id="guess-container">
+                    <p>Make a Guess</p>
+                    <label for="guess">Letter:</label>
+                    <input type="text" id="guess" name="guess" maxlength="1" required onkeydown="handleGuess(event)">
+                    <p id="guessedLetters">Guessed Letters: </p>
+                </div>
+            </div>
+        </main>
+        <div id="hangman-img">
+            <img src="/assets/hangman/0.jpg" alt="hangman" id="hangmanImg">
         </div>
     </div>
-
     <script src="/js/Hangman.js"></script>
 </body>
 </html>

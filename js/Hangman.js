@@ -1,7 +1,9 @@
 let guessedChars = [];
 
-let wrongGuessesMax = 7;
-let wrongGuesses = wrongGuessesMax;
+let wrongGuessesMax = 10;
+let wrongGuesses = 0;
+
+let hangmanImg = document.getElementById("hangmanImg");
 
 let correctWord;
 let resultWord;
@@ -23,13 +25,15 @@ function getInput(event) {
     document.getElementById("wordInput").value = "";
     guessedChars = [];
     updateGuessedCharsText(); 
-    wrongGuesses = wrongGuessesMax;
+    wrongGuesses = 0;
+
+    hangmanImg.src = "/assets/hangman/0.jpg";
 }
 
 // Return true if letter/ false if not
 function isLetter(char) {
     char = char.toUpperCase();
-    return (char.length === 1) && (char >= 'A' && char <= 'Z');
+    return (char.length === 1) && (char >= 'A' && char <= 'Z' || char == 'Å' || char == 'Ä' || char == 'Ö');
 }
 
 // Returns a hidden string
@@ -49,7 +53,7 @@ function handleGuess(event) {
     let guessInput = document.getElementById("guess").value.toUpperCase();
 
     if(event.key !== 'Enter')  return; // Only works for enter
-    if(correctWord == null)    return; // If there is no correct wors
+    if(correctWord == null)    return; // If there is no correct word
     if(guessInput.length == 0) return; // If empty message
     if(!isLetter(guessInput))  return; // Checks if letter
     if(isUnlocked(guessInput)) return; // Checks if letter has already been guessed
@@ -58,8 +62,12 @@ function handleGuess(event) {
 
     // Checks if char is in correct word and adds it if it is
     if (!checkIfCharInCorrectWord(guessChar)) {
-        wrongGuesses--;
-        if (wrongGuesses <= 0)
+        wrongGuesses++;
+
+        // Updates image
+        hangmanImg.src = "/assets/hangman/" + wrongGuesses + ".jpg";
+
+        if (wrongGuesses >= wrongGuessesMax)
             alert("You lost");
     }
 
@@ -111,4 +119,14 @@ function updateGuessedCharsText() {
         text += " " + guessedChars[i];
     
     document.getElementById("guessedLetters").textContent = text;
+}
+
+function fibonacci(nums)
+{
+    let num = 1;
+
+    for(int = 0; i < nums; i++)
+    {
+        nums *= 2;
+    }
 }

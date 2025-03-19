@@ -92,71 +92,59 @@ body {
   gap: 5%;
 }
 
-#hangman {
-  display: grid;
-  min-height: 100vh;
-  min-width: 100vw;
-  grid-template-columns: 1fr 3fr 3fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
-  grid-template-areas: ". . . ." ". guess-container visual-container ." ". . . .";
-  width: 100%;
-  height: 100%;
-  --s:84px;
-  --c1:#f2f2f2;
-  --c2:#cdcbcc;
-  --c3:#999999;
-  --_g:0 120deg, #0000 0;
-  background: conic-gradient(from 0deg at 83.3333333333% 33.3333333333%, var(--c3) var(--_g)), conic-gradient(from -120deg at 16.6666666667% 33.3333333333%, var(--c2) var(--_g)), conic-gradient(from 120deg at 33.3333333333% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from 120deg at 66.6666666667% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from -180deg at 33.3333333333% 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at 66.6666666667% 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% 33.3333333333%, var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
-  background-size: calc(var(--s) * 1.732) var(--s);
-}
-#hangman #guess-container {
-  grid-area: guess-container;
-  background-color: #143109;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
+#hangman-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  min-height: 100vh;
+  background-color: #D0D6B3;
+  color: #143109;
+  font-family: Arial, sans-serif;
 }
-#hangman #guess-container p {
-  margin: 5px 0;
-}
-#hangman #guess-container label {
+#hangman-container header {
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
   font-weight: bold;
 }
-#hangman #guess-container input {
-  width: 50px;
-  padding: 5px;
-  text-align: center;
-  font-size: 18px;
-  border: 2px solid #AAAE7F;
-  border-radius: 5px;
-  outline: none;
-  margin: 10px 0;
-  background-color: #F7F7F7;
-  color: #143109;
-}
-#hangman #guess-container input:focus {
-  border-color: #AAAE7F;
-}
-#hangman #guess-container #guessedLetters {
-  font-size: 14px;
-  margin-top: 10px;
-  text-align: center;
-  color: #AAAE7F;
-}
-#hangman #visual-container {
-  grid-area: visual-container;
-  background-color: #AAAE7F;
-  color: #143109;
-  padding: 20px;
-  border-radius: 8px;
+#hangman-container main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#hangman-container #game-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  justify-content: center;
+}
+#hangman-container #game-area #visual-container, #hangman-container #game-area #guess-container {
+  flex: 1 1 300px;
+  background: #F7F7F7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#hangman-container #game-area label {
+  font-weight: bold;
+}
+#hangman-container #game-area input {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid #AAAE7F;
+  text-align: center;
+  font-size: 16px;
+}
+#hangman-container #game-area input:focus {
+  border-color: #143109;
+}
+#hangman-container img {
+  width: 80%;
+  border-radius: 10%;
 }
 
 #ticTacToe {
