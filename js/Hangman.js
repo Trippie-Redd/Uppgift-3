@@ -5,6 +5,8 @@ let wrongGuesses = 0;
 
 let hangmanImg = document.getElementById("hangmanImg");
 
+let guessDisabled = false;
+
 let correctWord;
 let resultWord;
 
@@ -26,6 +28,8 @@ function getInput(event) {
     guessedChars = [];
     updateGuessedCharsText(); 
     wrongGuesses = 0;
+    guessDisabled = false;
+    document.getElementById('title').textContent = 'Hangman';
 
     hangmanImg.src = "/assets/hangman/0.jpg";
 }
@@ -57,6 +61,7 @@ function handleGuess(event) {
     if(guessInput.length == 0) return; // If empty message
     if(!isLetter(guessInput))  return; // Checks if letter
     if(isUnlocked(guessInput)) return; // Checks if letter has already been guessed
+    if(guessDisabled)          return; // If guess input is disabled
 
     let guessChar = guessInput[0];
 
@@ -67,8 +72,10 @@ function handleGuess(event) {
         // Updates image
         hangmanImg.src = "/assets/hangman/" + wrongGuesses + ".jpg";
 
-        if (wrongGuesses >= wrongGuessesMax)
-            alert("You lost");
+        if (wrongGuesses >= wrongGuessesMax) {
+            document.getElementById('title').textContent = 'You lost!';
+            guessDisabled = true;
+        }
     }
 
     // Adds char to already unlocked
@@ -84,8 +91,10 @@ function handleGuess(event) {
     document.getElementById("temp-result").textContent = resultWord.join("");
 
     // Checks if correct word has been guessed
-    if (resultWord.join("") == correctWord)
-        alert("Correct word has been guessed!");
+    if (resultWord.join("") == correctWord) {
+        document.getElementById('title').textContent = 'The correct word has been guessed!';
+        guessDisabled = true;
+    }
 }
 
 function checkIfCharInCorrectWord(char) {
@@ -119,14 +128,4 @@ function updateGuessedCharsText() {
         text += " " + guessedChars[i];
     
     document.getElementById("guessedLetters").textContent = text;
-}
-
-function fibonacci(nums)
-{
-    let num = 1;
-
-    for(int = 0; i < nums; i++)
-    {
-        nums *= 2;
-    }
 }

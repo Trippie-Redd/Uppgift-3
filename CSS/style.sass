@@ -1,25 +1,137 @@
+// Yatzy color palette
+$muted-gold:      #D4B483
+$muted-coral:     #E67A47
+$soft-beige:      #E5D8B3
+$midnight-blue:   #121e29
+$charcoal:        #333333
+
+// Hangman color palette
+$pakistan-green:  #143109
+$sage:            #AAAE7F
+$beige:           #D0D6B3
+$sea-salt:        #F7F7F7
+$anti-flash-white:#EFEFEF     
+
+// TicTacToe color palette
+$rich-black:      #001011
+$midnight-green:  #093A3E
+$verdigris:       #3AAFB9
+$electric-blue:   #64E9EE
+$light-sky-blue:  #97C8EB
+
+// Home/feedback page color palette
+$sunglow:         #FFD23F
+$blue-munsell:    #048BA8
+$blue-charcoal:   #2E4057
+$jet:             #2F2D2E
+$cocoa-brown:     #DA7635
+
+    
 // Temp/misc color palette
 $red: rgb(196, 3, 3)
 $transparent-red: #92000079
 $buttonColor: rgb(206, 206, 206)
 $tan: rgb(210, 180, 140)
 
-// Fonts
 @font-face 
-    font-family: very-very-punk
-    src: url("/assets/fonts/Very_very_punk_font.otf") format("opentype")
+    font-family: Liberation-Sans
+    src: url("/assets/LiberationSans-BaDn.ttf")
+
 
 body
     overflow: hidden
+    font-family: Liberation-Sans
+
+    .dark-mode
+        #yatzy
+        #hangman
+        #ticTacToe
+        #feedback
+
+#navbar 
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #333
+    color: white
+    padding: 0.5rem 1rem
+    position: relative
+    width: 100%
+    box-sizing: border-box
+
+    #nav-logo 
+        font-size: 1.2rem
+        font-weight: bold
+
+    ul 
+        display: flex
+        list-style: none
+        margin: 0
+        padding: 0
+
+        li 
+            padding: 0
+            margin: 0 0.5rem
+
+            a
+                color: white
+                text-decoration: none
+                padding: 0.5rem 1rem
+                transition: background-color 0.3s
+                border-radius: 4px
+
+            a:hover 
+                background-color: #555
+    
+    #theme-switch
+        display: flex
+        align-items: center
+        margin-left: auto
+
+    .theme-switch-label
+        margin: 0 0.5rem
+        font-size: 0.9rem
+
+    .theme-switch
+        position: relative
+        display: inline-block
+        width: 50px
+        height: 24px
+
+        input
+            opacity: 0
+
+        .slider
+            position: absolute
+            cursor: pointer
+            
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            
+            background-color: #ccc
+            transition: .3s
+            border-radius: 24px
+
+            &:before
+                position: absolute
+                content: ""
+                height: 16px
+                width: 16px
+                left: 4px
+                bottom: 4px
+                background-color: white
+                transition: .3s
+                border-radius: 50%
+
+        input:checked + .slider
+            background-color: #2196F3
+
+        input:checked + .slider:before
+            transform: translateX(26px)
 
 #yatzy
-    // Yatzy color palette
-    $muted-gold:      #D4B483
-    $muted-coral:     #E67A47
-    $soft-beige:      #E5D8B3
-    $midnight-blue:   #121e29
-    $charcoal:        #333333
-
     height: 100vh
     min-height: 100vh
     display: grid
@@ -73,7 +185,6 @@ body
 
         #playerActive
             color: $muted-gold
-            //font-family: very-very-punk
 
     .yatzy-container
         grid-area: yatzy-container
@@ -110,13 +221,6 @@ body
             gap: 5%
 
 #hangman
-    // Hangman color palette
-    $pakistan-green:  #143109
-    $sage:            #AAAE7F
-    $beige:           #D0D6B3
-    $sea-salt:        #F7F7F7
-    $anti-flash-white:#EFEFEF 
-
     display: flex
     flex-direction: column
     align-items: center
@@ -178,26 +282,18 @@ body
         border-radius: 7%
    
 #ticTacToe
-    // TicTacToe color palette
-    $rich-black:      #001011
-    $midnight-green:  #093A3E
-    $verdigris:       #3AAFB9
-    $electric-blue:   #64E9EE
-    $light-sky-blue:  #97C8EB
-
     height: 100vh
     min-height: 100vh
     display: grid
     grid-template-columns: 1fr 1.4fr 1fr
     grid-template-rows: 1fr 5fr 1fr
 
-    grid-template-areas: ". . ." ". game-container . " ". reset-container ." 
+    grid-template-areas: ". title ." ". game-container . " ". reset-container ." 
     
     width: 100%
     height: 100%
     --s:200px
 
-    /* control the size
     --c1:#1d1d1d
     --c2:#4e4f51
     --c3:#3c3c3c
@@ -219,7 +315,15 @@ body
             width: 32%
             height: 32%
 
-            font-family: very-very-punk
+    #title
+        grid-area: title
+
+        height: 100%
+
+        display: flex
+        justify-content: center
+
+
     
     #reset-container
         grid-area: reset-container
@@ -228,10 +332,3 @@ body
         align-items: center
 
 #feedback
-    // Home/feedback page color palette
-    $sunglow:         #FFD23F
-    $blue-munsell:    #048BA8
-    $blue-charcoal:   #2E4057
-    $jet:             #2F2D2E
-    $cocoa-brown:     #DA7635
-    background-color: white

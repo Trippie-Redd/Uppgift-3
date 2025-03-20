@@ -27,9 +27,12 @@ function handleBoxPressed(button, CSIndex) {
             break;
         }
     
-    if(gameOver || counter >= 9) {
-        alert(gameOver ? `Player ${player1Active ? 1 : 2} won` : "It's a draw!");
-        reset();
+    if(gameOver) {
+        document.getElementById('title').textContent = player1Active ? 'Player 1 won!' : 'Player 2 won!';
+        lockBoxes();
+    } else if(counter >= 9) {
+        document.getElementById('title').textContent = 'You tied!';
+        lockBoxes();
     } else 
         player1Active = !player1Active;
 }
@@ -43,4 +46,11 @@ function reset() {
     currentStatus.fill(0);
     counter = 0;
     player1Active = true;
+    document.getElementById('title').textContent = "Tic Tac Toe";
+}
+
+function lockBoxes() {
+    document.querySelectorAll(".input-box").forEach(button => {
+        button.disabled = true;
+    });
 }

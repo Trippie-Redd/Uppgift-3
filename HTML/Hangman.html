@@ -8,10 +8,31 @@
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
+    <nav id="navbar">
+        <div id="nav-logo">
+            <span>ts games</span>
+        </div>
+        <ul>
+            <li><a href="TicTacToe.html" class="nav-item">TicTacToe</a></li>
+            <li><a href="Hangman.html" class="nav-item">Hangman</a></li>
+            <li><a href="Yatzy.html" class="nav-item">Yatzy</a></li>
+        </ul>
+
+        <div id="theme-switch">
+            <span class="theme-switch-label">Light</span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onclick="switchTheme(this)"/>
+                <div class="slider round"></div>
+            </label>
+            <span class="theme-switch-label">Dark</span>
+        </div>
+    </nav>
+    
+
     <div id="hangman">
         <header>
             <div class="box">
-                <h1 class="title is-1">Hangman Game</h1>
+                <h1 class="title is-1" id="title">Hangman</h1>
             </div>
         </header>
         <main>
@@ -36,5 +57,6 @@
     </div>
 
     <script src="/js/Hangman.js"></script>
+    <script src="/js/dark-mode.js"></script>
 </body>
 </html>

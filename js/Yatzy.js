@@ -246,10 +246,16 @@ function AddToSum(score, button, upperSquare) {
 }
 
 function EndGame() {
+    const winningPlayer = document.getElementById("playerActive");
+
     if (p1Total > p2Total)
-        alert("Player 1 won!")
+        winningPlayer.textContent = "Player 1 won!";
     else if (p1Total < p2Total)
-        alert("Player 2 won!")
+        winningPlayer.textContent = "Player 2 won!";
     else
-        alert("You tied!")
+        winningPlayer.textContent = "You Tied";
+
+    setTimeout(reloadPage, 7500);
 }
+
+function reloadPage() { location.reload(); }

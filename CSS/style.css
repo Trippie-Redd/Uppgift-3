@@ -1,9 +1,91 @@
 @font-face {
-  font-family: very-very-punk;
-  src: url("/assets/fonts/Very_very_punk_font.otf") format("opentype");
+  font-family: Liberation-Sans;
+  src: url("/assets/LiberationSans-BaDn.ttf");
 }
 body {
   overflow: hidden;
+  font-family: Liberation-Sans;
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+#navbar #nav-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#navbar ul li {
+  padding: 0;
+  margin: 0 0.5rem;
+}
+#navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+#navbar ul li a:hover {
+  background-color: #555;
+}
+#navbar #theme-switch {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+#navbar .theme-switch-label {
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+}
+#navbar .theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+#navbar .theme-switch input {
+  opacity: 0;
+}
+#navbar .theme-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+#navbar .theme-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+#navbar .theme-switch input:checked + .slider {
+  background-color: #2196F3;
+}
+#navbar .theme-switch input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
 #yatzy {
@@ -157,11 +239,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1.4fr 1fr;
   grid-template-rows: 1fr 5fr 1fr;
-  grid-template-areas: ". . ." ". game-container . " ". reset-container .";
+  grid-template-areas: ". title ." ". game-container . " ". reset-container .";
   width: 100%;
   height: 100%;
   --s:200px;
-  /* control the size */
   --c1:#1d1d1d;
   --c2:#4e4f51;
   --c3:#3c3c3c;
@@ -180,15 +261,16 @@ body {
 #ticTacToe #game-container .input-box {
   width: 32%;
   height: 32%;
-  font-family: very-very-punk;
+}
+#ticTacToe #title {
+  grid-area: title;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 #ticTacToe #reset-container {
   grid-area: reset-container;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#feedback {
-  background-color: white;
 }/*# sourceMappingURL=style.css.map */
