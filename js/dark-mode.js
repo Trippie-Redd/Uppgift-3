@@ -1,18 +1,4 @@
-document.addEventListener('DOMContentLoaded', loadTheme);
-
 let darkModeOn = false;
-
-function loadTheme() {
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        
-        if (currentTheme === 'dark-mode') {
-            darkModeOn = true;
-        }
-    }
-}
 
 function switchTheme(element) {
     if (!darkModeOn) {
