@@ -5,6 +5,8 @@ $soft-beige:      #E5D8B3
 $midnight-blue:   #121e29
 $charcoal:        #333333
 
+$transparent-red: #92000079
+
 // Hangman color palette
 $pakistan-green:  #143109
 $sage:            #AAAE7F
@@ -26,27 +28,173 @@ $blue-charcoal:   #2E4057
 $jet:             #2F2D2E
 $cocoa-brown:     #DA7635
 
-    
-// Temp/misc color palette
-$red: rgb(196, 3, 3)
-$transparent-red: #92000079
-$buttonColor: rgb(206, 206, 206)
-$tan: rgb(210, 180, 140)
+// --------------------- dark-mode color palettes --------------------- //
+
+// Yatzy dark mode
+$dark-muted-gold:      darken($muted-gold, 25%)
+$dark-muted-coral:     darken($muted-coral, 25%)
+$dark-soft-beige:      darken($soft-beige, 50%)
+$dark-midnight-blue:   darken($midnight-blue, 5%)
+$dark-charcoal:        #111111
+
+// Hangman dark mode
+$dark-pakistan-green:  darken($pakistan-green, 10%)
+$dark-sage:            darken($sage, 35%)
+$dark-beige:           darken($beige, 50%)
+$dark-sea-salt:        #202020
+$dark-anti-flash-white:#181818
+
+// TicTacToe dark mode
+$dark-rich-black:      #000000
+$dark-midnight-green:  darken($midnight-green, 10%)
+$dark-verdigris:       darken($verdigris, 30%)
+$dark-electric-blue:   darken($electric-blue, 40%)
+$dark-light-sky-blue:  darken($light-sky-blue, 40%)
+
+// Home/feedback dark mode
+$dark-sunglow:         darken($sunglow, 35%)
+$dark-blue-munsell:    darken($blue-munsell, 20%)
+$dark-blue-charcoal:   darken($blue-charcoal, 10%)
+$dark-jet:             #111111
+$dark-cocoa-brown:     darken($cocoa-brown, 30%)
 
 @font-face 
     font-family: Liberation-Sans
     src: url("/assets/LiberationSans-BaDn.ttf")
 
-
-body
+body.dark-mode
+    margin: 0 // For form page mainly
     overflow: hidden
     font-family: Liberation-Sans
+    #navbar
+        background-color: $dark-jet
+        color: $anti-flash-white
 
-    .dark-mode
-        #yatzy
-        #hangman
-        #ticTacToe
-        #feedback
+        ul
+            li
+                a
+                    color: $anti-flash-white
+
+                a:hover
+                    background-color: lighten($dark-jet, 10%)
+
+    #feedback
+        background: repeating-linear-gradient(45deg, darken(#92c9b1, 50%), darken(#92c9b1, 50%) 20px, darken(#b3e0d2, 50%) 20px, darken(#b3e0d2, 50%) 40px)
+
+        form
+            h2
+                color: $light-sky-blue
+            
+            p
+                color: $dark-anti-flash-white
+            
+            .form-group
+                label
+                    color: $dark-anti-flash-white
+                
+                input,
+                textarea
+                    background-color: $dark-blue-munsell
+                    border-color: $dark-jet
+                    color: $dark-anti-flash-white
+                
+                    &:focus
+                        border-color: $electric-blue
+                        box-shadow: 0 0 0 3px rgba($electric-blue, 0.2)
+                    
+                    &::placeholder
+                        color: darken($dark-anti-flash-white, 30%)
+            
+            button
+                background-color: $dark-blue-munsell
+                color: $dark-anti-flash-white
+                
+                &:hover
+                    background-color: $blue-munsell
+
+    #yatzy
+        background: $dark-midnight-blue
+        --color: rgba(255, 255, 255, 0.1)
+        
+        #player2-container, #player1-container
+            button
+                background-color: $dark-soft-beige
+                color: $dark-anti-flash-white
+                
+                &:hover
+                    background-color: $dark-muted-gold
+            
+            .lockedScore
+                background-color: $dark-muted-coral
+        
+        #header-container
+            #playerActive
+                color: $dark-muted-gold
+        
+        .yatzy-container
+            background-color: $dark-soft-beige
+            
+            .dice-container
+                .dice
+                    background-color: $dark-soft-beige
+                
+                .locked
+                    background-color: rgba(lighten($transparent-red, 10%), 0.5)
+            
+            .button-container
+                background-color: $dark-muted-coral
+                color: $dark-anti-flash-white
+
+    #hangman
+        background: repeating-linear-gradient(-45deg, $dark-sage, $dark-pakistan-green 10px, $dark-sage 10px, $dark-pakistan-green 20px) $dark-sage
+        color: $light-sky-blue
+        
+        #game-area
+            #visual-container, #guess-container
+                background: $dark-sea-salt
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5)
+            
+            input
+                background-color: $dark-anti-flash-white
+                color: $light-sky-blue
+                border: 2px solid $dark-sage
+            
+            input:focus
+                border-color: $light-sky-blue
+
+    #ticTacToe
+        --c1: #{$dark-rich-black}
+        --c2: #{$dark-midnight-green}
+        --c3: #{$dark-verdigris}
+        
+        #game-container
+            background-color: $dark-midnight-green
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
+            
+            .input-box
+                background-color: $dark-rich-black
+                border: 2px solid $dark-electric-blue
+                
+                &:hover
+                    background-color: rgba($dark-verdigris, 0.3)
+                
+                &.x-mark
+                    background-color: rgba($dark-electric-blue, 0.5)
+                    
+                &.o-mark
+                    background-color: rgba($dark-light-sky-blue, 0.5)
+        
+        #title
+            color: $electric-blue
+            background-color: $dark-rich-black
+        
+        #reset-container
+            button
+                background-color: $dark-verdigris
+                color: $dark-anti-flash-white
+                
+                &:hover
+                    background-color: $verdigris
 
 #navbar 
     display: flex
@@ -101,7 +249,7 @@ body
         input
             opacity: 0
 
-        .slider
+        #slider
             position: absolute
             cursor: pointer
             
@@ -125,12 +273,79 @@ body
                 transition: .3s
                 border-radius: 50%
 
-        input:checked + .slider
+        input:checked + #slider
             background-color: #2196F3
 
-        input:checked + .slider:before
+        input:checked + #slider:before
             transform: translateX(26px)
 
+#feedback
+    // ------------------- From Uiverse.io ------------------- //
+    width: 100vw
+    height: 100vh
+    background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px)
+    // ------------------- From Uiverse.io ------------------- //
+
+    padding: 30px
+
+    form
+        h2 // Form title 
+            color: $blue-charcoal
+            margin-bottom: 10px
+            font-weight: 600
+
+        p // Form descrition 
+            color: $jet
+            margin-bottom: 25px
+            font-size: 0.9rem
+
+        .form-group 
+            margin-bottom: 20px
+
+            label 
+                display: block
+                margin-bottom: 8px
+                font-weight: 500
+                color: white
+
+            input, textarea 
+                padding: 12px
+                border: 1px solid lighten($jet, 50%)
+                background-color: $blue-munsell
+                border-radius: 5px
+                font-size: 1rem
+                transition: border-color 0.3s
+                width: 30%
+        
+            &:focus 
+                outline: none
+                border-color: $blue-munsell
+                box-shadow: 0 0 0 3px rgba($blue-munsell, 0.2)
+            
+            &::placeholder 
+                color: lighten($jet, 40%)
+            
+            textarea 
+                resize: vertical
+
+        button 
+            background-color: $blue-munsell
+            color: white
+            border: none
+            padding: 12px 24px
+            font-size: 1rem
+            font-weight: 500
+            border-radius: 5px
+            cursor: pointer
+            transition: background-color 0.3s
+
+            &:hover 
+                background-color: darken($blue-munsell, 10%)
+
+            &:focus 
+                outline: none
+                box-shadow: 0 0 0 3px rgba($blue-munsell, 0.3)
+    
 #yatzy
     height: 100vh
     min-height: 100vh
@@ -140,6 +355,7 @@ body
     grid-template-rows: 1fr 3fr 1fr
     grid-template-areas: "player1-container header-container player2-container" "player1-container yatzy-container player2-container" "player1-container . player2-container"
 
+    // ------------------- From Uiverse.io ------------------- //
     width: 100%
     height: 100%
     background: $midnight-blue
@@ -148,6 +364,7 @@ body
     --color:rgba(255, 255, 255, 0.2)
     background-image: linear-gradient(-90deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap)), linear-gradient(0deg, transparent calc(var(--gap) - var(--line)), var(--color) calc(var(--gap) - var(--line) + 1px), var(--color) var(--gap))
     background-size: var(--gap) var(--gap)
+    // ------------------- From Uiverse.io ------------------- //
 
     #player1-container
         grid-area: player1-container
@@ -226,10 +443,12 @@ body
     align-items: center
     min-height: 100vh
     
+    // ------------------- From Uiverse.io ------------------- //
     width: 100%
     height: 100%
     background: repeating-linear-gradient(-45deg, $sage, $pakistan-green 10px, $sage 10px, $pakistan-green 20px) $sage
     background-blend-mode: screen
+    // ------------------- From Uiverse.io ------------------- //
     
     color: $pakistan-green
     font-family: Arial, sans-serif
@@ -290,15 +509,17 @@ body
 
     grid-template-areas: ". title ." ". game-container . " ". reset-container ." 
     
+    // ------------------- From Uiverse.io ------------------- //
     width: 100%
     height: 100%
-    --s:200px
+    --s: 200px
 
-    --c1:#1d1d1d
-    --c2:#4e4f51
-    --c3:#3c3c3c
+    --c1: #{$rich-black}
+    --c2: #{$midnight-green}
+    --c3: #{$verdigris}
     background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577), repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg)
     background-size: var(--s) calc(var(--s) * 0.577)
+    // ------------------- From Uiverse.io ------------------- //
 
     #game-container
         grid-area: game-container
@@ -309,26 +530,42 @@ body
         flex-wrap: wrap
         gap: 1%
 
-        background-color: $buttonColor
+        background-color: $midnight-green
+        border-radius: 8px
+        box-shadow: 0 0 15px rgba($rich-black, 0.5)
 
         .input-box 
             width: 32%
             height: 32%
+            background-color: $rich-black
+            border: 2px solid $electric-blue
+            border-radius: 5px
+            transition: all 0.3s ease
+
+            &:hover
+                background-color: rgba($verdigris, 0.2)
+
+            &.x-mark
+                background-color: rgba($electric-blue, 0.3)
+                
+            &.o-mark
+                background-color: rgba($light-sky-blue, 0.3)
 
     #title
         grid-area: title
-
         height: 100%
-
         display: flex
         justify-content: center
-
-
+        align-items: center
+        color: $electric-blue
+        background-color: $rich-black
+        border-radius: 5px
+        text-shadow: 0 0 10px rgba($electric-blue, 0.5)
+        font-size: 2.5rem
+        font-weight: bold
     
     #reset-container
         grid-area: reset-container
         display: flex
         justify-content: center
         align-items: center
-
-#feedback

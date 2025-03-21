@@ -3,13 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>Contact Form</title>
     <link rel="stylesheet" href="/CSS/style.css">
-    <link rel="stylesheet" href="/my-bulma-project.css">
 </head>
 <body>
+    <nav id="navbar">
+        <div id="nav-logo">
+            <span>ts games</span>
+        </div>
+        <ul>
+            <li><a href="TicTacToe.html" class="nav-item">TicTacToe</a></li>
+            <li><a href="Hangman.html" class="nav-item">Hangman</a></li>
+            <li><a href="Yatzy.html" class="nav-item">Yatzy</a></li>
+            <li><a href="Feedback.html" class="nav-item">Feedback</a></li>
+        </ul>
+
+        <div id="theme-switch">
+            <span class="theme-switch-label">Light</span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onclick="switchTheme(this)"/>
+                <div class="round" id="slider"></div>
+            </label>
+            <span class="theme-switch-label">Dark</span>
+        </div>
+    </nav>
+
+
     <div id="feedback">
-        Feedback
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="69a203fa-ede5-4270-829e-fdf8617e4a4c">
+
+            <h2>Contact Us</h2>
+            <p>Please give us feedback or suggestions for future games!</p>
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What is this regarding?">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit">Send Message</button>
+        </form>
     </div>
+
+    <script src="/js/dark-mode.js"></script>
 </body>
 </html>

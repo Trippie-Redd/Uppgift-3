@@ -23,5 +23,5 @@ function switchTheme(element) {
         document.body.classList.remove('dark-mode');
         localStorage.setItem('theme', '');
         darkModeOn = false;
-    }    
+    }   
 }

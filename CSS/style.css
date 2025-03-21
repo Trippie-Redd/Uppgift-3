@@ -2,10 +2,138 @@
   font-family: Liberation-Sans;
   src: url("/assets/LiberationSans-BaDn.ttf");
 }
-body {
+body.dark-mode {
+  margin: 0;
   overflow: hidden;
   font-family: Liberation-Sans;
 }
+body.dark-mode #navbar {
+  background-color: #111111;
+  color: #EFEFEF;
+}
+body.dark-mode #navbar ul li a {
+  color: #EFEFEF;
+}
+body.dark-mode #navbar ul li a:hover {
+  background-color: #2b2b2b;
+}
+body.dark-mode #feedback {
+  background: repeating-linear-gradient(45deg, #1e3e30, #1e3e30 20px, #2b6956 20px, #2b6956 40px);
+}
+body.dark-mode #feedback form h2 {
+  color: #97C8EB;
+}
+body.dark-mode #feedback form p {
+  color: #181818;
+}
+body.dark-mode #feedback form .form-group label {
+  color: #181818;
+}
+body.dark-mode #feedback form .form-group input,
+body.dark-mode #feedback form .form-group textarea {
+  background-color: #023944;
+  border-color: #111111;
+  color: #181818;
+}
+body.dark-mode #feedback form .form-group input:focus,
+body.dark-mode #feedback form .form-group textarea:focus {
+  border-color: #64E9EE;
+  box-shadow: 0 0 0 3px rgba(100, 233, 238, 0.2);
+}
+body.dark-mode #feedback form .form-group input::-moz-placeholder, body.dark-mode #feedback form .form-group textarea::-moz-placeholder {
+  color: black;
+}
+body.dark-mode #feedback form .form-group input::placeholder,
+body.dark-mode #feedback form .form-group textarea::placeholder {
+  color: black;
+}
+body.dark-mode #feedback form button {
+  background-color: #023944;
+  color: #181818;
+}
+body.dark-mode #feedback form button:hover {
+  background-color: #048BA8;
+}
+body.dark-mode #yatzy {
+  background: #0a1117;
+  --color: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode #yatzy #player2-container button, body.dark-mode #yatzy #player1-container button {
+  background-color: #725f27;
+  color: #181818;
+}
+body.dark-mode #yatzy #player2-container button:hover, body.dark-mode #yatzy #player1-container button:hover {
+  background-color: #a07737;
+}
+body.dark-mode #yatzy #player2-container .lockedScore, body.dark-mode #yatzy #player1-container .lockedScore {
+  background-color: #993f15;
+}
+body.dark-mode #yatzy #header-container #playerActive {
+  color: #a07737;
+}
+body.dark-mode #yatzy .yatzy-container {
+  background-color: #725f27;
+}
+body.dark-mode #yatzy .yatzy-container .dice-container .dice {
+  background-color: #725f27;
+}
+body.dark-mode #yatzy .yatzy-container .dice-container .locked {
+  background-color: rgba(197, 0, 0, 0.5);
+}
+body.dark-mode #yatzy .yatzy-container .button-container {
+  background-color: #993f15;
+  color: #181818;
+}
+body.dark-mode #hangman {
+  background: repeating-linear-gradient(-45deg, #494b2f, #020601 10px, #494b2f 10px, #020601 20px) #494b2f;
+  color: #97C8EB;
+}
+body.dark-mode #hangman #game-area #visual-container, body.dark-mode #hangman #game-area #guess-container {
+  background: #202020;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode #hangman #game-area input {
+  background-color: #181818;
+  color: #97C8EB;
+  border: 2px solid #494b2f;
+}
+body.dark-mode #hangman #game-area input:focus {
+  border-color: #97C8EB;
+}
+body.dark-mode #ticTacToe {
+  --c1: #000000;
+  --c2: #031011;
+  --c3: #154145;
+}
+body.dark-mode #ticTacToe #game-container {
+  background-color: #031011;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+body.dark-mode #ticTacToe #game-container .input-box {
+  background-color: #000000;
+  border: 2px solid #0d7579;
+}
+body.dark-mode #ticTacToe #game-container .input-box:hover {
+  background-color: rgba(21, 65, 69, 0.3);
+}
+body.dark-mode #ticTacToe #game-container .input-box.x-mark {
+  background-color: rgba(13, 117, 121, 0.5);
+}
+body.dark-mode #ticTacToe #game-container .input-box.o-mark {
+  background-color: rgba(29, 101, 153, 0.5);
+}
+body.dark-mode #ticTacToe #title {
+  color: #64E9EE;
+  background-color: #000000;
+}
+body.dark-mode #ticTacToe #reset-container button {
+  background-color: #154145;
+  color: #181818;
+}
+body.dark-mode #ticTacToe #reset-container button:hover {
+  background-color: #3AAFB9;
+}
+
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -59,7 +187,7 @@ body {
 #navbar .theme-switch input {
   opacity: 0;
 }
-#navbar .theme-switch .slider {
+#navbar .theme-switch #slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -70,7 +198,7 @@ body {
   transition: 0.3s;
   border-radius: 24px;
 }
-#navbar .theme-switch .slider:before {
+#navbar .theme-switch #slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -81,11 +209,78 @@ body {
   transition: 0.3s;
   border-radius: 50%;
 }
-#navbar .theme-switch input:checked + .slider {
+#navbar .theme-switch input:checked + #slider {
   background-color: #2196F3;
 }
-#navbar .theme-switch input:checked + .slider:before {
+#navbar .theme-switch input:checked + #slider:before {
   transform: translateX(26px);
+}
+
+#feedback {
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px);
+  padding: 30px;
+}
+#feedback form h2 {
+  color: #2E4057;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+#feedback form p {
+  color: #2F2D2E;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
+#feedback form .form-group {
+  margin-bottom: 20px;
+}
+#feedback form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: white;
+}
+#feedback form .form-group input, #feedback form .form-group textarea {
+  padding: 12px;
+  border: 1px solid #afacae;
+  background-color: #048BA8;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  width: 30%;
+}
+#feedback form .form-group:focus {
+  outline: none;
+  border-color: #048BA8;
+  box-shadow: 0 0 0 3px rgba(4, 139, 168, 0.2);
+}
+#feedback form .form-group::-moz-placeholder {
+  color: #969294;
+}
+#feedback form .form-group::placeholder {
+  color: #969294;
+}
+#feedback form .form-group textarea {
+  resize: vertical;
+}
+#feedback form button {
+  background-color: #048BA8;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#feedback form button:hover {
+  background-color: #036276;
+}
+#feedback form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(4, 139, 168, 0.3);
 }
 
 #yatzy {
@@ -242,10 +437,10 @@ body {
   grid-template-areas: ". title ." ". game-container . " ". reset-container .";
   width: 100%;
   height: 100%;
-  --s:200px;
-  --c1:#1d1d1d;
-  --c2:#4e4f51;
-  --c3:#3c3c3c;
+  --s: 200px;
+  --c1: #001011;
+  --c2: #093A3E;
+  --c3: #3AAFB9;
   background: repeating-conic-gradient(from 30deg, rgba(0, 0, 0, 0) 0 120deg, var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577), repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
   background-size: var(--s) calc(var(--s) * 0.577);
 }
@@ -256,17 +451,39 @@ body {
   align-content: center;
   flex-wrap: wrap;
   gap: 1%;
-  background-color: rgb(206, 206, 206);
+  background-color: #093A3E;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 16, 17, 0.5);
 }
 #ticTacToe #game-container .input-box {
   width: 32%;
   height: 32%;
+  background-color: #001011;
+  border: 2px solid #64E9EE;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+#ticTacToe #game-container .input-box:hover {
+  background-color: rgba(58, 175, 185, 0.2);
+}
+#ticTacToe #game-container .input-box.x-mark {
+  background-color: rgba(100, 233, 238, 0.3);
+}
+#ticTacToe #game-container .input-box.o-mark {
+  background-color: rgba(151, 200, 235, 0.3);
 }
 #ticTacToe #title {
   grid-area: title;
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: #64E9EE;
+  background-color: #001011;
+  border-radius: 5px;
+  text-shadow: 0 0 10px rgba(100, 233, 238, 0.5);
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 #ticTacToe #reset-container {
   grid-area: reset-container;
