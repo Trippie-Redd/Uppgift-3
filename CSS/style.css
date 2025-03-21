@@ -2,9 +2,15 @@
   font-family: Liberation-Sans;
   src: url("/assets/LiberationSans-BaDn.ttf");
 }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Liberation-Sans;
+}
+
 body.dark-mode {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: Liberation-Sans;
 }
 body.dark-mode #navbar {
@@ -24,16 +30,16 @@ body.dark-mode #feedback form h2 {
   color: #97C8EB;
 }
 body.dark-mode #feedback form p {
-  color: #181818;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form .form-group label {
-  color: #181818;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form .form-group input,
 body.dark-mode #feedback form .form-group textarea {
   background-color: #023944;
   border-color: #111111;
-  color: #181818;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form .form-group input:focus,
 body.dark-mode #feedback form .form-group textarea:focus {
@@ -41,15 +47,15 @@ body.dark-mode #feedback form .form-group textarea:focus {
   box-shadow: 0 0 0 3px rgba(100, 233, 238, 0.2);
 }
 body.dark-mode #feedback form .form-group input::-moz-placeholder, body.dark-mode #feedback form .form-group textarea::-moz-placeholder {
-  color: black;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form .form-group input::placeholder,
 body.dark-mode #feedback form .form-group textarea::placeholder {
-  color: black;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form button {
   background-color: #023944;
-  color: #181818;
+  color: #EFEFEF;
 }
 body.dark-mode #feedback form button:hover {
   background-color: #048BA8;
@@ -433,7 +439,7 @@ body.dark-mode #ticTacToe #reset-container button:hover {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1.4fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
   grid-template-areas: ". title ." ". game-container . " ". reset-container .";
   width: 100%;
   height: 100%;

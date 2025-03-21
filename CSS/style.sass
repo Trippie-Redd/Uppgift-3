@@ -62,9 +62,15 @@ $dark-cocoa-brown:     darken($cocoa-brown, 30%)
     font-family: Liberation-Sans
     src: url("/assets/LiberationSans-BaDn.ttf")
 
+body
+    margin: 0 // For form page mainly
+    overflow-x: hidden
+    //overflow: hidden
+    font-family: Liberation-Sans
+
 body.dark-mode
     margin: 0 // For form page mainly
-    overflow: hidden
+    overflow-x: hidden
     font-family: Liberation-Sans
     #navbar
         background-color: $dark-jet
@@ -86,28 +92,28 @@ body.dark-mode
                 color: $light-sky-blue
             
             p
-                color: $dark-anti-flash-white
+                color: $anti-flash-white
             
             .form-group
                 label
-                    color: $dark-anti-flash-white
+                    color: $anti-flash-white
                 
                 input,
                 textarea
                     background-color: $dark-blue-munsell
                     border-color: $dark-jet
-                    color: $dark-anti-flash-white
+                    color: $anti-flash-white
                 
                     &:focus
                         border-color: $electric-blue
                         box-shadow: 0 0 0 3px rgba($electric-blue, 0.2)
                     
                     &::placeholder
-                        color: darken($dark-anti-flash-white, 30%)
+                        color: $anti-flash-white
             
             button
                 background-color: $dark-blue-munsell
-                color: $dark-anti-flash-white
+                color: $anti-flash-white
                 
                 &:hover
                     background-color: $blue-munsell
@@ -505,7 +511,7 @@ body.dark-mode
     min-height: 100vh
     display: grid
     grid-template-columns: 1fr 1.4fr 1fr
-    grid-template-rows: 1fr 5fr 1fr
+    grid-template-rows: 1fr 4fr 1fr
 
     grid-template-areas: ". title ." ". game-container . " ". reset-container ." 
     
